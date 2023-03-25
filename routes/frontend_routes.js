@@ -114,11 +114,13 @@ rout.get('/',async(req,res)=>{
 
 
 rout.get('/about_us',function(req,res){
-    res.render('about_us');
+    let user = req.session.user;
+    res.render('about_us',{user});
 })
 
 rout.get('/contact_us',function(req,res){
-    res.render('contact');
+    let user = req.session.user;
+    res.render('contact',{user});
 })
 
 rout.get('/genres',function(req,res){
