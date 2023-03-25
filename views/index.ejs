@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css" type="text/css">
+    <title>home_page</title>
+</head>
+<body class="font" style="background-color:beige;">
+    <!-- ######################## header section ########################## -->
+    <div class="container-fluid">
+        <%- include('./common/header.ejs') %>
+
+    </div>
+    <!-- ####################### header section ends ############################ -->
+    <br><br><br>
+
+    <!-- ###################### carousel section starts #################### -->
+    <div class="container-fluid">
+        <div  id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img style="height: 400px;" src="/images/carousel_3.jpg" class="d-block  w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style="height: 400px;"  src="/images/carousel_1.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style="height: 400px;"  src="/images/carousel_4.jpg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img style="height: 400px;"  src="/images/carousel_2.jpg" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </div>
+    <!-- ###################### carousel section ends ###################### -->
+
+    <!-- #################### shop now heading/section ############## -->
+    <div class="container-fluid mt-2 d-flex justify-content-center">
+      <p class="display-4 text">Shop Now</p>
+    </div><hr>
+    <!-- ################ shop now heading ends ############## -->
+
+    <!-- ########## new/latest launches section with price and buy button############# -->
+    <div class="container-fluid">
+      <p class="display-6">New Arrivals</p>
+    </div>
+    <% if(data2.length>0){ %>
+    <div class="container-fluid">
+      <div class="row arrow">
+        <% for(let i=0; i<data2.length; i++){ %>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-1 " >
+          <a class="arrow_position" href="new_arrivals"><img src="/images/right_arrow_01.png" alt=""></a>
+          <div  class="card" >
+            <a href=""><img style="height: 250px;" class="card-img-top p-1 img-fluid" src="uploads/<%=data2[i].book_img.data  %>" alt="Card image"></a>
+            <div class="card-body">
+              <h4 class="card-title"><%=data2[i].book_name %></h4>
+              <p>By: <%=data2[i].author_name %></p>
+              <b><p class="card-text float me-2"><%=data2[i].price %> </p> 
+              <p>(-<%=data2[i].discount %>%off)</p></b>
+              <a href="#" class="btn btn-primary">Buy</a>
+            </div>
+          </div>
+        </div>
+        <% } %>
+
+      </div>
+    </div>
+    <% } else{ %>
+      no data found
+      <% } %>
+    <!-- ################### new/latest launches section ends ############# -->
+
+    <!-- ################### most popular books ################### -->
+    <div class="container-fluid mt-4">
+      <p class="display-6">Most Popular</p>
+    </div>
+    <% if(data3.length>0){ %>
+      <div class="container-fluid">
+        <div class="row arrow">
+          <% for(let i=0; i<data3.length; i++){ %>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-1 " >
+            <a class="arrow_position" href="new_arrivals"><img src="/images/right_arrow_01.png" alt=""></a>
+            <div class="card" >
+              <a href=""><img style="height: 250px;" class="card-img-top p-1 img-fluid" src="uploads/<%=data3[i].book_img.data  %>" alt="Card image"></a>
+              <div class="card-body">
+                <h4 class="card-title"><%=data3[i].book_name %></h4>
+                <p>By: <%=data3[i].author_name %></p>
+                <b><p class="card-text float me-2"><%=data3[i].price %> </p> 
+                <p>(-<%=data3[i].discount %>%off)</p></b>
+                <a href="#" class="btn btn-primary">Buy</a>
+              </div>
+            </div>
+          </div>
+          <% } %>
+  
+        </div>
+      </div>
+      <% } else{ %>
+        no data found
+        <% } %>
+    <!-- ################### most popular books ends ################ -->
+
+    <!-- ################### category wise books #################### -->
+    <div class="container-fluid mt-4">
+      <p class="display-6">Genres</p>
+    </div>
+    <% if(data.length>0){ %>
+    <div class="container-fluid">
+      <div class="row arrow">
+        <% for(let i=0; i<6; i++) { %> 
+        <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-1">
+          <a class="arrow_position_cat " href="/genres"><img src="/images/right_arrow_01.png" alt=""></a>
+          <div style="background-image: url('../uploads/<%=data[i].category_img.data %>');opacity:0.9; background-size: cover;"  class="bg-info d-flex justify-content-center borderr back_img_01">
+              <p style="font-size:28px; line-height: 5;" class="mt-1"><a href="genres/<%=data[i].category_name %>" class="text-white underline"><%=data[i].category_name %></a></p>
+          </div>
+        </div>
+        <%} %>
+
+      </div>
+    </div>
+    <% } else{ %>
+      no data found
+      <% } %>
+      
+    <!-- ################ categories section ends ###################### -->
+
+    <!-- ####################### gallery section ##################### -->
+
+    <!-- #################### gallery section ends ################### -->
+
+    <!-- ############## testimonial/user review section ############## -->
+    <div class="container-fluid mt-5" id="testimonial">
+      <p class="display-6 text-center">Testimonials</p>
+    </div>
+    <div class="container-fluid ">
+      <div id="demo" class="carousel slide" data-bs-ride="carousel">
+        
+        <!-- indicators/dots -->
+        <div class="carousel-indicators">
+            <button class="active" type="button" data-bs-target="#demo" data-bs-slide-to="0"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+        </div>
+
+        <!-- the slideshow/carousel -->
+        <div class="carousel-inner">
+            <div style= "height: 180px" class=" bg-light carousel-item active">
+                <p class="mt-5 text-center">It's a very nice gym with world top class equipment of Life fitness and Hammer Strength, and people surrounding is also good, and staff of this branch is very kind, they help members very well and all the trainers are certified with good knowledge of teaching as well. Good place to achieve your goals.<br><br> Ram Roy</p>
+            </div>
+            <div style= "height: 180px" class=" bg-light carousel-item active">
+              <p class="mt-5 text-center">So this place is more than just a gym. You walk in and make friends that will guide you and help you out each time. They have great programs such as kickboxing, yoga, Zumba etc that you can opt for to change the routine once in a while.<br><br> Rahul</p>
+            </div>
+          <div style= "height: 180px" class=" bg-light carousel-item active">
+            <p class="mt-5 text-center">It's a very nice gym with world top class equipment of Life fitness and Hammer Strength, and people surrounding is also good, and staff of this branch is very kind, they help members very well and all the trainers are certified with good knowledge of teaching as well. Good place to achieve your goals.<br><br> Shubhit</p>
+          </div>
+        </div>
+
+        <!-- left and right buttons/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+    </div>
+    <!-- ################ testimonial section ends ############## -->
+    
+    <!-- ######################### footer section #################### -->
+    <hr>
+    <!-- <img src="uploads/1679372258668mystery_Gillian Flynn.png" alt="no img"> -->
+    <div class="container-fluid">
+        <%- include('./common/footer.ejs') %>
+    </div>
+    <!-- ####################### footer section ends ################### -->
+    <script type="text/javascript">
+      // $('#mymodal2').on('show', setTimeout(function () {
+      //   $('input:text:visible:first').focus();
+      // },100));
+
+      $(".testbtn").on('click',function(){
+        $("#username1").focus();
+      })
+      $(".testbtn2").on('click',function(){
+        $("#username").focus();
+      })
+    </script>
+
+</body>
+</html>

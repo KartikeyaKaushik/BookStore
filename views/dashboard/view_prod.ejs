@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="/css/view_prod.css" type="text/css">
+
+</head>
+<body class="font">
+    <!-- #################### header section ###################### -->
+    <%- include('dash_header.ejs') %>
+    <!-- ##################### header section ends ################## -->
+
+    
+    <div class="container-fluid ">
+        <div class="row">
+            <!-- ################## left section #################### -->
+            <div class="col-md-3 heightt p-0 bg-warning responsive">
+                <%- include('left.ejs') %>
+                
+            </div>
+            <!-- ################## left section ends #################### -->
+            <div class="col-md-9 table-responsive-md offset-md-3">
+                <% if(data.length>0) { %>
+                <table class="table ">
+                    <tr>
+                        <th>Book Id</th>
+                        <th>Book Name</th>
+                        <th>Category</th>
+                        <th>Description</th> <!-- <th>Category</th> -->
+                        <th>Author</th>
+                        <th>Price</th>
+                        <th>Discount</th>
+                        <th>Action</th>
+                    </tr>
+                <% for(var i=0; i<data.length; i++) { %>
+                    <tr>
+                        <td><%=i %></td>
+                        <td><%=data[i].book_name %></td>
+                        <td><%=data[i].category %></td>
+                        <td><%=data[i].description %></td>
+                        <td><%=data[i].author_name %></td>
+                        <td><%=data[i].price %></td>
+                        <td><%=data[i].discount %></td>
+                        <td>
+                            <a href="/edit_product/<%=data[i]._id %>" type="button" class="btn btn-success">edit</a>
+                            <a href="/view_product/<%=data[i]._id %>" type="button" class="btn btn-primary mt-1">view</a>
+                            <a href="/delete/<%=data[i]._id %>" type="button" class="btn btn-danger mt-1">delete</a>
+
+                        </td>
+                    </tr>
+                    <% } %>
+                </table>
+                <% } else{ %>
+                    no product found
+                <% } %>
+            </div>
+        </div>
+    </div>
+    <!-- ######################### footer section ###################### -->
+    
+    <!-- ####################### footer section ends ####################### -->
+</body>
+</html>

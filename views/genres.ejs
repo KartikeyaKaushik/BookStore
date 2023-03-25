@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>genres</title>
+    <link rel="stylesheet" type="text/css" href="/css/genres.css">
+</head>
+<body class="font">
+    <%- include('./common/header.ejs') %>
+    <br><br><br>
+
+    <div class="container-fluid mt-4">
+        <p class="display-6 text-center">Genres</p>
+    </div>
+    <% if(data.length>0){ %>
+    <div class="container-fluid mt-5 mb-3">
+        <div class="row">
+          <% for(let i=0; i<data.length; i++) { %> 
+          <div class="col-lg-2 col-md-3 col-sm-4 mt-5">
+            <div style="background-image: url('../uploads/<%=data[i].category_img.data %>'); opacity:0.9; background-size: cover;" class="bg-info d-flex justify-content-center borderr back_img_01">
+                <p style="font-size:28px; line-height: 5;" class="mt-1"><a href="/genres/<%=data[i].category_name %>" class="text-white underline"><%=data[i].category_name %></a></p>
+            </div>
+          </div>
+          <%} %>
+        </div>
+    </div>
+    <%} else{ %>
+        no record found
+      <%} %>
+    <!-- ##################### footer section #################### -->
+    <%- include('./common/footer.ejs') %>
+    <!-- ################# footer section ends ##################### -->
+</body>
+</html>

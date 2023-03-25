@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/css/contact.css" type="text/css">
+</head>
+<body class="font" style="background-color:beige;">
+    <!-- ######################## header section ################## -->
+    <%- include('./common/header.ejs') %>
+    <!-- ####################### header section ends ################## -->
+    <br><br><br><br>
+
+    <!-- ######################### contact me section ################################# -->
+    <div id="contact"  class=" container-fluid ">
+        <div class="row">
+            <div class="col-sm-4  mb-2">
+                <h1 class="text_shd_01 text-center">Contact Us</h1>
+                <dl class="text-center">
+                    <dt>Email:</dt>
+                    <dd>Kartikeyakaushik999@gmail.com</dd>
+                    <dt>Phone No:</dt>
+                    <dd>0132456789</dd>
+                    <dt>Address</dt>
+                    <dd>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda dolores saepe veniam. Nesciunt</dd>
+                    <!-- <dd>House No: 264,<br> VPO Mitraon, New Delhi, <br>Pin Code: 110043</dd> -->
+                </dl>
+            </div>
+            <div class=" mb-2 col-sm-8">
+                <h1 class="text-center text_shd_01">Send Queries</h1>
+                <form action="/queries" method="post">
+                    <div class="mb-3">
+                        <label for="name1" class="form-label"></label>
+                        <input type="text" class="form-control" placeholder="Enter Name" id="name" name="name">
+                    </div>
+                    <div class="mb-2">
+                      <label for="exampleInputEmail1" class="form-label"></label>
+                      <input type="email" class="form-control" placeholder="Enter Email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone1" class="form-label"></label>
+                        <input type="number" class="form-control" placeholder="Enter Contact No" id="phone" name="number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject1" class="form-label"></label>
+                        <input type="text" class="form-control" placeholder="Enter Subject" id="subject" name="subject">
+                    </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                      <label class="form-check-label" for="exampleCheck1">I'm not a robot</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ######################## contact me section ends ############## -->
+    
+    <!-- ##################### footer section ##################### -->
+    <%- include('./common/footer.ejs') %>
+    <!-- #################### footer section ends ################# -->
+</body>
+</html>

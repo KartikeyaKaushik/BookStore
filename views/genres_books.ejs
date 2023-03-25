@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>genres</title>
+    <link rel="stylesheet" type="text/css" href="/css/genres.css">
+</head>
+<body class="font">
+    <%- include('./common/header.ejs') %>
+    <br><br><br>
+    <!-- <% let i =0 %> -->
+    <% if(data.length>0){ %>
+    <div class="container-fluid mt-4">
+        <p class="display-6 text-center"><%=data[i].category %> Section</p>
+    </div>
+    
+    <div class="container-fluid">
+        <div class="row">
+            <% for(let i=0; i<data.length; i++) { %>
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-2">
+                <div class="card" >
+                    <!-- <a href="/view_book/<%=data[i]._id %>"><img class="card-img-top p-1 img-fluid" src="uploads/<%= data[i].book_img.data %>" alt="Card image"></a> -->
+                    <a href="/view_book/<%=data[i]._id %>"><img style="height: 250px;" class="card-img-top p-1 img-fluid" src="http://localhost:9990/uploads/<%= data[i].book_img.data %>" alt="Card image"></a>
+
+                    <!-- <a href="/view_book/<%=data[i]._id %>"><img class="card-img-top p-1 img-fluid" src="data:image/jpg;base64,<%=data[i].book_img.data.toString('base64') %>" alt="Card image"></a> -->
+
+                    <!-- <a href="/view_book/<%=data[i]._id %>"><img class="card-img-top p-1 img-fluid" src="uploads/<%=data[i].book_img.data.toString('base64') %>" alt="Card image"></a> -->
+
+                    <div class="card-body">
+                      <h4 class="card-title"><%=data[i].book_name %></h4>
+                      <p>By: <%=data[i].author_name %></p>
+                      <p class="card-text float me-2"><b><%=data[i].price %></b></p>
+                      <p><b>(-<%=data[i].discount %>% off)</b></p>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal4">
+                        View
+                      </button>
+                      <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                  </div>
+            </div>
+            <%} %>
+        </div>
+    </div>
+    <%} else{ %>
+    no data found
+    <%} %>
+
+    <!-- The Modal -->
+<div class="modal" id="myModal4">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title"><%=data.book_name %></h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          Modal body..
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+  <!-- modal end -->
+  
+
+    <!-- <img src="uploads/1679233005884romance_01.jpg" alt="no img"> -->
+    <!-- ##################### footer section #################### -->
+    <%- include('./common/footer.ejs') %>
+    <!-- ################# footer section ends ##################### -->
+</body>
+</html>

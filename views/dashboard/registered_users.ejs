@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dashboard</title>
+    <link rel="stylesheet" href="/css/registered_users.css" type="text/css" />
+  </head>
+  <body class="font">
+    <!-- #################### header section ###################### -->
+    <%- include('dash_header.ejs') %>
+    <!-- ##################### header section ends ################## -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- ################## left section #################### -->
+        <div class="col-md-3 heightt p-0 bg-warning responsive">
+          <%- include('left.ejs') %>
+        </div>
+        <!-- ################## left section ends #################### -->
+        <div class="col-md-9 table-responsive-sm offset-md-3">
+          <% if(data.length>0) { %>
+          <table class="table">
+            <tr>
+              <th>User Id</th>
+              <th>Full Name</th>
+              <!-- first_name + last_name -->
+              <th>UserName</th>
+              <!-- <th>Category</th> -->
+              <th>Email</th>
+              <th>Address</th>
+              <th>Action</th>
+            </tr>
+            <% for(var i=0; i<data.length; i++) { %>
+            <tr>
+              <td><%=i %></td>
+              <td><%= data[i].first_name +" "+ data[i].last_name %></td>
+              <td><%= data[i].username %></td>
+              <td><%= data[i].email %></td>
+              <td><%= data[i].address %></td>
+              <td>
+                <a href="/edit/<%=data[i]._id %>" type="button" class="btn btn-success">
+                  Edit
+                </a>
+                <a href="/view/<%=data[i]._id %>" type="button" class="btn btn-success">
+                  View
+                </a>
+                <a href="/remove/<%=data[i]._id %>" type="button" class="btn btn-danger">
+                  Remove User
+                </a>
+              </td>
+            </tr>
+            <% } %>
+          </table>
+          <% } else{%>
+             No Record Found 
+             <% } %>
+        </div>
+      </div>
+    </div>
+    <!-- ######################### footer section ###################### -->
+
+    <!-- ####################### footer section ends ####################### -->
+  </body>
+</html>

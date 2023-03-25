@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="/css/add_category.css" type="text/css">
+
+</head>
+<body class="font">
+    <!-- #################### header section ###################### -->
+    <%- include('dash_header.ejs') %>
+    <!-- ##################### header section ends ################## -->
+
+    
+    <div class="container-fluid">
+        <div class="row">
+            <!-- ################## left section #################### -->
+            <div  class="col-md-3 p-0 heightt bg-warning responsive">
+                <%- include('left.ejs') %>
+                
+            </div>
+            <!-- ################## left section ends #################### -->
+            
+            <div class="col-md-9 offset-md-3">
+                <form method="post" action="/update_cat/<%=data._id %>" enctype="multipart/form-data">
+                    <div class="mb-3 mt-3">
+                      <label>Category Name:</label>
+                      <input type="text" class="form-control" id="category" 		 placeholder="" name="category_name" value="<%=data.category_name %>" autofocus>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label>Image:</label>
+                        <input type="file" class="form-control"  placeholder="" name="category_img" vlaue="">
+                      </div>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- ######################### footer section ###################### -->
+    
+    <!-- ####################### footer section ends ####################### -->
+    
+</body>
+</html>

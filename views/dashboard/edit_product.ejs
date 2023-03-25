@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/css/add_prod.css">
+
+</head>
+<body class="font">
+    <!-- #################### header section ###################### -->
+    <%- include('dash_header.ejs') %>
+    <!-- ##################### header section ends ################## -->
+
+    
+    <div class="container-fluid ">
+        <div class="row">
+            <!-- ################## left section #################### -->
+            <div class="col-md-3 heightt p-0 bg-warning responsive">
+                <%- include('left.ejs') %>
+                
+            </div>
+            <!-- ################## left section ends #################### -->
+            <div class="col-md-9 offset-md-3">
+                <form method="post" action="/update_product/<%=data._id %>" enctype="multipart/form-data">
+                    <div class="mb-3 mt-3">
+                      <label for="book_name">Book Name:</label>
+                      <input type="text" class="form-control" id="book_name" 		 placeholder="" name="book_name" value="<%=data.book_name %>" autofocus>
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="picture">Book's Image:</label>
+                      <input type="file" class="form-control" id="book_img" 		 placeholder="" name="book_img" value="">
+                    </div>
+
+                    <div class="mb-3">
+                      <label>Category</label>
+                      <select id="cat" name="category">
+                        <option value="<%=data.category_name %>"></option>
+                        <% if(data2.length>0){ %>
+                        <% for(i=0; i<data2.length; i++){ %>
+                        <option value="<%=data.category_name %>"><%=data2[i].category_name %></option>
+                        <% } %>
+                        <% } else{%>
+                          no data found
+                        <% } %>
+                      </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" 		 placeholder="" name="description"> <%=data.description %></textarea>
+                      </div>
+                    
+                    <div class="mb-3">
+                      <label for="author's_name">Author's Name:</label>
+                      <input type="text" class="form-control" id="author_name" 		 placeholder="" name="author_name" value="<%=data.author_name %>">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="price">Price:</label>
+                      <input type="number" class="form-control" id="price" 		 placeholder="" name="price" value="<%=data.price %>">
+                    </div>
+
+                    <div class="mb-3">
+                      <label for="discount">Discount:</label>
+                      <input type="number" class="form-control" id="discount" 		 placeholder="" name="discount" value="<%=data.discount %>">
+                    </div>
+                    
+                    
+                    <button type="submit" class="btn btn-secondary">Submit</button>
+                  </form>
+            </div>
+        </div>
+    </div>
+    <!-- ######################### footer section ###################### -->
+    
+    <!-- ####################### footer section ends ####################### -->
+</body>
+</html>

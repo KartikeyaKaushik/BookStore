@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="/css/edit_sign_up.css" type="text/css">
+
+</head>
+<body class="font">
+    <!-- #################### header section ###################### -->
+    <%- include('dash_header.ejs') %>
+    <!-- ##################### header section ends ################## -->
+
+    
+    <div class="container-fluid">
+        <div class="row ">
+            <!-- ################## left section #################### -->
+            <div class="col-md-3 p-0 heightt bg-warning responsive">
+                <%- include('left.ejs') %>
+                
+            </div>
+            <!-- <% let i=0 %> -->
+            <!-- ################## left section ends #################### -->
+            <div class="col-md-9 offset-md-3">
+              <div class="">
+                <form method="post" action="/edit_sign_up/<%=data._id %>">
+                    <div class="mb-3 mt-3">
+                      <label for="username">Username:</label>
+                      <input type="text" class="form-control" id="username" 		 placeholder="Enter username" name="username" value="<%=data.username %>" autofocus>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="first_name">First Name:</label>
+                      <input type="text" class="form-control" id="f_name" 		 placeholder="Enter first name" name="first_name" value="<%=data.first_name %>">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="last_name">Last Name:</label>
+                      <input type="text" class="form-control" id="l_name" 		 placeholder="Enter last name" name="last_name" value="<%=data.last_name %>">
+                    </div>
+                     
+                    <div class="mb-3">
+                      <label for="email">Email:</label>
+                      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="<%=data.email %>">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="location">Address:</label>
+                      <textarea class="form-control" id="location" 		 placeholder="Enter your permanent address" name="address" ><%=data.address %></textarea>
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="pwd">Password:</label>
+                      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="<%=data.password %>">
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="conf_pwd">Confirm Password:</label>
+                      <input type="password" class="form-control" id="conf_pwd" placeholder="Re-enter password" name="confirm_password" value="<%=data.confirm_password %>">
+                    </div>
+                    
+                    
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ######################### footer section ###################### -->
+    
+    <!-- ####################### footer section ends ####################### -->
+    
+</body>
+</html>
