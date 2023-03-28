@@ -284,6 +284,15 @@ rout.get('/logout',(req,res,next)=>{
 //         res.redirect('/login');
 //     }
 // })
+rout.get('/cart',async function(req,res){
+    try{
+        let userr = await req.session.user;
+        res.render('cart.ejs',{userr});
+    }
+    catch(error){
+        console.log(error);
+    }
+})
 
 
 server.use('/',rout);
