@@ -74,7 +74,7 @@
               <p>By: <%=data2[i].author_name %></p>
               <b><p class="card-text float me-2"><%=data2[i].price %> </p> 
               <p>(-<%=data2[i].discount %>%off)</p></b>
-              <a href="#" class="btn btn-primary">Buy</a>
+              <a href="/cart/<%=data2[i]._id %>" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
                 <p>By: <%=data3[i].author_name %></p>
                 <b><p class="card-text float me-2"><%=data3[i].price %> </p> 
                 <p>(-<%=data3[i].discount %>%off)</p></b>
-                <a href="#" class="btn btn-primary">Buy</a>
+                <a href="/cart/<%=data3[i]._id %>" class="btn btn-primary">Add To Cart</a>
               </div>
             </div>
           </div>

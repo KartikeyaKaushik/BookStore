@@ -15,6 +15,7 @@ let userModel_news_letter = require('../model/news_letter.js')
 let userModel_add_product = require('../model/add_product.js');
 let userModel_add_category = require('../model/add_category.js');
 let userModel_queries = require('../model/queries');
+let userModel_cart = require('../model/cart');
 const bcrypt = require('bcryptjs');
 let cookieParser = require('cookie-parser');
 let session = require('express-session');
@@ -40,7 +41,7 @@ server.use((req,res,next)=>{
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next)=>{
     if(req.session.user && req.cookies.user_id){
-        res.redirect('/dashboard');
+        res.redirect('/');
     }
     else{
         next();
@@ -162,7 +163,7 @@ rout.post('/login', sessionChecker, async(req,res)=>{
     try{
         const userr = await userModel_sign_up.findOne({username: username}).exec();
         let user = req.session.user;
-        console.log(userr);
+        // console.log(userr);
         // console.log(req.session.user);
         if(!userr){
             res.redirect("/");
@@ -286,8 +287,36 @@ rout.get('/logout',(req,res,next)=>{
 // })
 rout.get('/cart',async function(req,res){
     try{
-        let userr = await req.session.user;
-        res.render('cart.ejs',{userr});
+        let user = req.session.user;
+        let data = await userModel_cart.find({user:user.username});
+        res.render('cart.ejs',{user,data});
+        console.log(user.username);
+    }
+    catch(error){
+        console.log(error);
+    }
+})
+
+rout.post('/cart/:id', async function(req,res){
+    try{
+        let userr = req.session.user;
+        let product = await userModel_add_product.findById(req.params.id);
+        if(product){
+            // console.log(product);
+            let cart = new userModel_cart({
+                book_name:product.book_name,
+                book_img:product.book_img,
+                author_name:product.author_name,
+                price:product.price,
+                user:userr.username
+            })
+            cart.save().then(()=>{
+                res.redirect('/dashboard');
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
+        }
     }
     catch(error){
         console.log(error);

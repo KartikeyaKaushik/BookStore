@@ -10,6 +10,11 @@
 <body class="font">
     <%- include('./common/header.ejs') %>
     <br><br><br>
+    <%if(data.length>0){%>
+        <%=data%>
+    <%} else{ %>
+        no data found
+    <%} %>
 
     <%- include('./common/footer.ejs') %>
 </body>

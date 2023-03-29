@@ -34,7 +34,7 @@ server.use((req,res,next)=>{
 // middleware function to check for logged-in users
 var sessionChecker = (req, res, next)=>{
     if(req.session.user && req.cookies.user_id){
-        res.redirect('/dashboard');
+        res.redirect('/');
     }
     else{
         next();
