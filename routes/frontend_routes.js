@@ -245,9 +245,10 @@ rout.post('/queries',(req,res)=>{
 // *******************************************************************
 
 rout.get('/genres/:id',(req,res)=>{
+    let user = req.session.user;
     userModel_add_product.find({category: req.params.id}).then((data)=>{
-        res.render('genres_books',{data:data});
-        console.log(data);
+        res.render('genres_books',{data:data,user});
+        // console.log(data);
     })
     .catch((error)=>{
         console.log(error);
