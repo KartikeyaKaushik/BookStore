@@ -1,0 +1,15 @@
+.underline{
+    text-decoration: none;
+}
+
+.font{
+    font-family: 'Tilt Neon', cursive;
+}
+
+.float{
+    float: left;
+}
+
+.borderr{
+    border-radius: 0.2cm;
+}

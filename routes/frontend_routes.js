@@ -125,6 +125,7 @@ rout.get('/contact_us',function(req,res){
 })
 
 rout.get('/genres',function(req,res){
+    user = req.session.user;
     userModel_add_category.find().then((data)=>{
         res.render('genres.ejs',{data: data});
     })

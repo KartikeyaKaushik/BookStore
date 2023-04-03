@@ -62,7 +62,7 @@
       <div class="row arrow">
         <% for(let i=0; i<data2.length; i++){ %>
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-1 " >
-          <a class="arrow_position" href="new_arrivals"><img src="/images/right_arrow_01.png" alt=""></a>
+          <!-- <a class="arrow_position" href="new_arrivals"><img src="/images/right_arrow_01.png" alt=""></a> -->
           <div  class="card" >
             <a href=""><img style="height: 250px;" class="card-img-top p-1 img-fluid" src="uploads/<%=data2[i].book_img.data  %>" alt="Card image"></a>
             <div class="card-body">
@@ -92,7 +92,7 @@
         <div class="row arrow">
           <% for(let i=0; i<data3.length; i++){ %>
           <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-1 " >
-            <a class="arrow_position" href="new_arrivals"><img src="/images/right_arrow_01.png" alt=""></a>
+            <!-- <a class="arrow_position" href="new_arrivals"><img src="/images/right_arrow_01.png" alt=""></a> -->
             <div class="card" >
               <a href=""><img style="height: 250px;" class="card-img-top p-1 img-fluid" src="uploads/<%=data3[i].book_img.data  %>" alt="Card image"></a>
               <div class="card-body">
@@ -123,7 +123,7 @@
         <% for(let i=0; i<6; i++) { %> 
         <div class="col-lg-2 col-md-3 col-sm-4 col-6 mt-1">
           <a class="arrow_position_cat " href="/genres"><img src="/images/right_arrow_01.png" alt=""></a>
-          <div style="background-image: url('../uploads/<%=data[i].category_img.data %>');opacity:0.9; background-size: cover;"  class="bg-info d-flex justify-content-center borderr back_img_01">
+          <div style="background-image: url('../uploads/<%=data[i].category_img.data %>');opacity:0.9; background-size: cover;"  class="bg-info d-flex justify-content-center borderr">
               <p style="font-size:28px; line-height: 5;" class="mt-1"><a href="genres/<%=data[i].category_name %>" class="text-white underline"><%=data[i].category_name %></a></p>
           </div>
         </div>
@@ -136,10 +136,6 @@
       <% } %>
       
     <!-- ################ categories section ends ###################### -->
-
-    <!-- ####################### gallery section ##################### -->
-
-    <!-- #################### gallery section ends ################### -->
 
     <!-- ############## testimonial/user review section ############## -->
     <div class="container-fluid mt-5" id="testimonial">

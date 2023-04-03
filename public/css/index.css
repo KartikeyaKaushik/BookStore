@@ -1,0 +1,32 @@
+.underline{
+    text-decoration: none;
+}
+
+.font{
+    font-family: 'Tilt Neon', cursive;
+}
+
+.float{
+    float: left;
+}
+
+.borderr{
+    border-radius: 0.2cm;
+}
+
+.arrow{
+    position: relative;
+}
+/* .arrow_position{
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    top: 250px;
+    
+} */
+.arrow_position_cat{
+    position: absolute;
+    z-index: 2;
+    right: 0px;
+    top: 80px;
+}
