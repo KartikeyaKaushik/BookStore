@@ -10,11 +10,11 @@ userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    // book_img:{
-    //     data: Buffer,
-    //     contentType: String,
+    book_img:{
+        data: Buffer,
+        contentType: String,
         
-    // },
+    },
     author_name:{
         type: String,
         required: true

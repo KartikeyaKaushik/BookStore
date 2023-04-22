@@ -299,25 +299,39 @@ rout.get('/cart',async function(req,res){
     }
 })
 
-rout.post('/cart/:id', async function(req,res){
+rout.get('/cart/:id', async function(req,res){
+    // console.log(userr);
+
     try{
         let userr = req.session.user;
         let product = await userModel_add_product.findById(req.params.id);
+        // console.log(product);
         if(product){
-            // console.log(product);
+            console.log(product);
             let cart = new userModel_cart({
                 book_name:product.book_name,
                 book_img:product.book_img,
                 author_name:product.author_name,
                 price:product.price,
                 user:userr.username
-            })
+            });
             cart.save().then(()=>{
                 res.redirect('/dashboard');
             })
             .catch((error)=>{
+                res.redirect("/")
                 console.log(error);
             })
+
+            // let data = await cart.save();
+            // if(data){
+            //     console.log("added to cart");
+            //     res.redirect('/dashboard');
+            // }
+            // res.redirect('/');
+
+
+            
         }
     }
     catch(error){

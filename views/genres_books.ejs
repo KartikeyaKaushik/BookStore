@@ -33,10 +33,10 @@
                       <p>By: <%=data[i].author_name %></p>
                       <p class="card-text float me-2"><b><%=data[i].price %></b></p>
                       <p><b>(-<%=data[i].discount %>% off)</b></p>
-                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal4">
+                      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal4">
                         View
-                      </button>
-                      <a href="#" class="btn btn-primary">Buy</a>
+                      </button> -->
+                      <a href="/cart/<%=data[i]._id %>" class="btn btn-primary">Add To Cart</a>
                     </div>
                   </div>
             </div>
@@ -48,29 +48,28 @@
     <%} %>
 
     <!-- The Modal -->
-<div class="modal" id="myModal4">
+<!-- <div class="modal" id="myModal4">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
   
-        <!-- Modal Header -->
+        
         <div class="modal-header">
           <h4 class="modal-title"><%=data.book_name %></h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
-        <!-- Modal body -->
         <div class="modal-body">
           Modal body..
         </div>
   
-        <!-- Modal footer -->
+       
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
         </div>
   
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- modal end -->
   
 

@@ -13,3 +13,10 @@
     line-height: 4;
     height: 91.8vh;
 }
+
+@media only screen and (max-width: 576px){
+    .none{
+        display: none;
+    }
+    
+}
