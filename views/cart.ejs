@@ -11,12 +11,29 @@
     <%- include('./common/header.ejs') %>
     <br><br><br>
     <%if(data.length>0){%>
-    <div  class="container-fluid bg-danger">
+    <div  class="container-fluid ">
         <div class="row">
             <% for(let i=0; i<data.length; i++){ %>
             <div class="col-md-4"></div>
             <div class="col-md-4 mt-2">
-                <div class="card" style="height: 22vh;">
+
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                      <div class="col-md-4">
+                        <img style="height: 175px;" src="http://localhost:9990/uploads/<%= data[i].book_img.data %>" class="img-fluid rounded-start" alt="...">
+                      </div>
+                      <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title"><%=data[i].book_name %></h4>
+                            <p class="card-text"><%=data[i].author_name %></p>
+                            <p class="card-text"><%=data[i].price %></p>
+                            <a class="underline" href="/remove_cart_item/<%=data[i]._id %>" class="card-link">Remove</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                <!-- <div class="card" style="height: 22vh;">
                     <div class="card-body">
                       <img src="http://localhost:9990/uploads/<%= data[i].book_img.data %>" class="card-img-top img-fluid">
                       <h4 class="card-title"><%=data[i].book_name %></h4>
@@ -24,7 +41,7 @@
                       <p class="card-text"><%=data[i].price %></p>
                       <a href="#" class="card-link">Remove</a>
                     </div>
-                  </div>
+                  </div> -->
             </div>
             <div class="col-md-4">
             </div>

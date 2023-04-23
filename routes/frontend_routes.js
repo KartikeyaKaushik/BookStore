@@ -292,7 +292,7 @@ rout.get('/cart',async function(req,res){
         let user = req.session.user;
         let data = await userModel_cart.find({user:user.username});
         res.render('cart.ejs',{user,data});
-        console.log(user.username);
+        // console.log(user.username);
     }
     catch(error){
         console.log(error);
@@ -307,7 +307,7 @@ rout.get('/cart/:id', async function(req,res){
         let product = await userModel_add_product.findById(req.params.id);
         // console.log(product);
         if(product){
-            console.log(product);
+            // console.log(product);
             let cart = new userModel_cart({
                 book_name:product.book_name,
                 book_img:product.book_img,
@@ -316,7 +316,7 @@ rout.get('/cart/:id', async function(req,res){
                 user:userr.username
             });
             cart.save().then(()=>{
-                res.redirect('/dashboard');
+                res.redirect('/cart');
             })
             .catch((error)=>{
                 res.redirect("/")
@@ -337,6 +337,24 @@ rout.get('/cart/:id', async function(req,res){
     catch(error){
         console.log(error);
     }
+})
+
+rout.get('/remove_cart_item/:id', async(req, res)=>{
+    try{
+        let data = await userModel_cart.findByIdAndRemove(req.params.id);
+        if(!data){
+            res.redirect('/');
+            console.log('item not removed');
+        }
+        else{
+            res.redirect('/cart');
+            console.log('item removed from cart');
+        }
+    }
+    catch(error){
+        console.log(error);
+    }
+    
 })
 
 
