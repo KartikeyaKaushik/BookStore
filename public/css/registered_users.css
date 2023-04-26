@@ -1,7 +1,9 @@
 .underline{
     text-decoration: none;
 }
-
+ul li{
+    list-style-type: none;
+}
 .font{
     font-family: 'Tilt Neon', cursive;
 }
@@ -12,4 +14,26 @@
 .heightt{
     line-height: 4;
     height: 91.8vh;
+}
+
+@media only screen and (max-width: 576px){
+    .none{
+        display: none;
+    }
+    
+}
+@media only screen and (max-width: 767px) and (min-width: 100px){
+    .responsive{
+        position: relative;
+        height: 9vh;
+    }
+    .flexx{
+        margin-top: 10px;
+        display: flex;
+        justify-content:start;
+    }
+    .flexx li{
+        margin-right: 2px;
+        padding: 0px;
+    }
 }

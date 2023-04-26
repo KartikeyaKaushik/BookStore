@@ -13,6 +13,7 @@
     <%if(data.length>0){%>
     <div  class="container-fluid ">
         <div class="row">
+            <% let total=0 %>
             <% for(let i=0; i<data.length; i++){ %>
             <div class="col-md-4"></div>
             <div class="col-md-4 mt-2">
@@ -20,13 +21,18 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                       <div class="col-md-4">
-                        <img style="height: 175px;" src="http://localhost:9990/uploads/<%= data[i].book_img.data %>" class="img-fluid rounded-start" alt="...">
+                        <img style="height: 175px;" src="http://localhost:9990/uploads/<%= data[i].book_img.data %>" class="mt-2 img-fluid rounded-start" alt="...">
                       </div>
                       <div class="col-md-8">
                         <div class="card-body">
                             <h4 class="card-title"><%=data[i].book_name %></h4>
                             <p class="card-text"><%=data[i].author_name %></p>
                             <p class="card-text"><%=data[i].price %></p>
+                            <p style="float: left" class="">Quantity:<%=data[i].quantity %></p>
+                            <div class="" style="float:right;">
+                              <a class="" href="/quantity_dec/<%=data[i]._id %>"><img src="icons/minus.png"></a>
+                              <a class="" href="/quantity_inc/<%=data[i]._id %>"><img src="icons/plus.png"></a>
+                            </div><br>
                             <a class="underline" href="/remove_cart_item/<%=data[i]._id %>" class="card-link">Remove</a>
                         </div>
                       </div>
@@ -45,8 +51,11 @@
             </div>
             <div class="col-md-4">
             </div>
+            <% total= total + (data[i].quantity * data[i].price) %>
             <% } %> 
-            <div class="container-fluid">
+            <div class="mt-2 container-fluid d-flex justify-content-around">
+              <p class="text-center display-6">Subtotal : <%=total %></p>
+              <button style="height: 45px" class="btn btn-info ">Checkout</button>
             </div>
 
         </div>

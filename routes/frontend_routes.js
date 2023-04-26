@@ -157,7 +157,7 @@ rout.post('/news_letter',(req,res)=>{
     })
 })
 
-rout.post('/login', sessionChecker, async(req,res)=>{
+rout.post('/login', async(req,res)=>{
     var username = req.body.username,
     password = req.body.password;
 
@@ -355,6 +355,51 @@ rout.get('/remove_cart_item/:id', async(req, res)=>{
         console.log(error);
     }
     
+})
+
+rout.get('/quantity_inc/:id', async(req, res)=>{
+    // let user = req.session.user;
+    // const {book_img} = req.file.filename;
+    // const{book_name,author_name, price} = req.body;
+    try{
+        // console.log(req.params.id)
+        let data = await userModel_cart.updateOne({_id:req.params.id},{$inc:{quantity:1}});
+        if(data){
+            res.redirect('/cart')
+        }
+        else{
+            console.log(error);
+            res.redirect('/')
+        }
+    }
+    catch(error){
+        console.log(error);
+    }
+    
+})
+
+rout.get('/quantity_dec/:id', async(req, res)=>{
+    try{
+        let data2 = await userModel_cart.findById(req.params.id);
+        if(data2.quantity>1){
+            let data = await userModel_cart.updateOne({_id:req.params.id},{$inc:{quantity:-1}});
+            if(data){
+                res.redirect('/cart')
+            }
+            else{
+                console.log(error);
+                res.redirect('/')
+            }
+        }
+        else{
+            res.redirect('/cart');
+            console.log("cannot change quantity to zero you can remove it from cart if you want");
+        }
+        
+    }
+    catch(error){
+        console.log(error);
+    }
 })
 
 

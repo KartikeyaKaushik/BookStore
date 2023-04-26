@@ -11,9 +11,9 @@
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas bg-dark offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas bg-light offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title text-white" id="offcanvasNavbarLabel">Book Store</h5>
+            <h5 class="offcanvas-title text-dark" id="offcanvasNavbarLabel">Book Store</h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body">
@@ -35,11 +35,11 @@
               </li>
             </ul>
             <%if (!user) { %>
-            <button type="button" id="signin" style="height:45px;" class="me-2 btn testbtn mt-1 btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
+            <button type="button" id="signin" style="height:38px;" class="btn-sm me-2 btn testbtn mt-2 btn-primary" data-bs-toggle="modal" data-bs-target="#myModal2">
               Sign In
             </button>
             <% }else{ %>
-            <a style="height:38px;" href="/logout" class="mt-2 btn btn-danger" type="button">Logout</a>
+            <a style="height:38px;" href="/logout" class=" mt-2 btn btn-danger" type="button">Logout</a>
             <%}%>
           </div>
         </div>

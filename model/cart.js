@@ -20,12 +20,16 @@ userSchema = mongoose.Schema({
         required: true
     },
     price:{
-        type: String,
+        type: Number,
         required: true
     },
     user:{
         type: String,
         required: true
+    },
+    quantity:{
+        type: Number,
+        default: 1
     }
 })
 
