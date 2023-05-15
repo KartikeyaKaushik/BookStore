@@ -307,21 +307,36 @@ rout.get('/cart/:id', async function(req,res){
         let product = await userModel_add_product.findById(req.params.id);
         // console.log(product);
         if(product){
-            // console.log(product);
-            let cart = new userModel_cart({
-                book_name:product.book_name,
-                book_img:product.book_img,
-                author_name:product.author_name,
-                price:product.price,
-                user:userr.username
-            });
-            cart.save().then(()=>{
-                res.redirect('/cart');
-            })
-            .catch((error)=>{
-                res.redirect("/")
-                console.log(error);
-            })
+            let data = await userModel_cart.findOne({book_name: product.book_name});
+            if(data){
+                let data2 = await userModel_cart.updateOne({book_name:product.book_name},{$inc:{quantity:1}});
+                if(data2){
+                    console.log("quantity updated")
+                    res.redirect('/cart')
+                }
+                else{
+                    console.log("error occured while updating quanitty");
+                    res.redirect('/')
+                }
+            }
+            else{
+                console.log(product);
+                let cart = new userModel_cart({
+                    book_name:product.book_name,
+                    book_img:product.book_img,
+                    author_name:product.author_name,
+                    price:product.price,
+                    user:userr.username
+                });
+                cart.save().then(()=>{
+                    res.redirect('/cart');
+                })
+                .catch((error)=>{
+                    res.redirect("/")
+                    console.log(error);
+                })
+            }
+            
 
             // let data = await cart.save();
             // if(data){
